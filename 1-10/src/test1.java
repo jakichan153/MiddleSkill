@@ -41,9 +41,7 @@ public class test1 {
 		
 		//問題4:この配列"numd"をコピーした配列名"new_numd"を作り"new_numd"の中身を出力してください。
 		int[] numd = {1, 3, 5, 7, 9};
-		int[] new_numd = new int[numd.length];
-		
-		System.arraycopy(numd, 0, new_numd, 0, numd.length);
+		int[] new_numd = numd.clone();
 		
 		System.out.println(Arrays.toString(new_numd));
 		

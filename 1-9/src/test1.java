@@ -21,9 +21,12 @@ public class test1 {
 		System.out.println(Value);
 //		3.boolean型の変数の値に不正な文字列比較を入れてfalseを出力してください。	
 
-		boolean isInvalid = "Hello" == "World";
+		String str1 = "Hello";
+		String str2 = "World";
 		
-		System.out.println(isInvalid);
+		boolean isEqual = str1.equals(str2);
+		
+		System.out.println(isEqual);
 	}
 
 }
