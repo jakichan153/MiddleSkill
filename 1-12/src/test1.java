@@ -12,7 +12,7 @@ public class test1 {
 		int y = 80;
 		int z = 15;
 		
-		if (x > 0) {
+		if (x > 0 && y > 0 && z > 0) {
 		    if (x % 10 == 0) {
 		        if (x + y + z == 100) {
 		            System.out.println("プラス100：OK");
