@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 public class test1 {
 	public static void main(String[] args) {
 		//改行
@@ -18,31 +17,50 @@ public class test1 {
 		//strArray1でfor文を回し3文字目(k)以降のものをstrArray2に格納する(1個目のfor文)
 		//strArray2でfor文を回しkとaとoの物だけでstrArray3に格納する(2個目のfor文)
 		//strArray3でfor文を回し「kakao」となるようにstrArray4に格納しstrArray4を出力する。(3個目のfor文)
-		List<String> strArray1 = new ArrayList<String>(Arrays.asList("f", "u", "k", "u", "d", "a", "k" , "a" , "n" , "e" , "o" ));
+		List<String> strArray1 = new ArrayList(Arrays.asList("f", "u", "k", "u", "d", "a", "k" , "a" , "n" , "e" , "k" , "o" ));
 		List<String> strArray2 = new ArrayList<String>();
 		List<String> strArray3 = new ArrayList<String>();
 		List<String> strArray4 = new ArrayList<String>();
 		
-		for(int i = 2; i < strArray1.size(); i++) {
-			strArray2.add(strArray1.get(i));
-			}
-			
-			for(String str : strArray2) {
-				if(str.equals("k") || str.equals("a") || str.equals("o")) {
-					strArray3.add(str);
-						
-				}
-			}
-			for (int i = 0; i < 5; i++) {
-	            
-	            strArray4.add(strArray3.get(i % strArray3.size()));
 
-			}
-		
-			System.out.println(strArray4);
-		}
-     }
+		 // 1st for loop: strArray1でfor文を回し3文字目(k)以降のものをstrArray2に格納する
+        for (int i = 2; i < strArray1.size(); i++) {
+            strArray2.add(strArray1.get(i));
 
+            // 2nd for loop: strArray2でfor文を回しkとaとoの物だけでstrArray3に格納する
+            for (int j = 0; j < strArray2.size();j++) {
+            	if (strArray2.get(j).equals("k") || strArray2.get(j).equals("a") || strArray2.get(j).equals("o")) {
+                    strArray3.add(strArray2.get(j));
+                }
 
+                    // 3rd for loop: strArray3でfor文を回し「kakao」となるようにstrArray4に格納しstrArray4を出力する
+                    for (int k = 0; k <= strArray3.size() -5; k++) {
+//                        if (strArray3.get(k).equals("k") && strArray3.get(k + 1).equals("a") &&
+//                                strArray3.get(k + 2).equals("k") && strArray3.get(k + 3).equals("a") &&
+//                                strArray3.get(k + 4).equals("o")) {
+//                            strArray4.add(strArray3.get(k));
+//                        }
 
+                        // Additional conditions within 3rd for loop
+                        if (strArray4.size() == 0 && strArray3.get(k).equals("k")) {
+                            strArray4.add(strArray3.get(k));
+                        } else if (strArray4.size() == 1 && strArray3.get(k).equals("a")) {
+                            strArray4.add(strArray3.get(k));
+                        }else if (strArray4.size() == 2 && strArray3.get(k).equals("k")) {
+                            strArray4.add(strArray3.get(k));
+                            }else if (strArray4.size() == 3 && strArray3.get(k).equals("a")) {
+                                strArray4.add(strArray3.get(k));
+                                }
+//                            else if (strArray4.size() == 4 && strArray3.get(k).equals("k") || strArray4.size() == 4 && strArray3.get(k).equals("a")) {
+//                            	 strArray4.add(strArray3.get(k));
+//                                    }
+//                       
+                        
+                    }
+                }
+            }
+        
 
+        System.out.println(strArray4);
+    }
+}
