@@ -1,0 +1,35 @@
+⚫️課題1−21
+
+①Javaパッケージで基本クラスのパッケージは何がありますか？
+java.lang
+
+②Javaパッケージで演算クラスのパッケージは何がありますか？
+java.math
+
+③Javaパッケージでセキュリティのパッケージは何がありますか？
+java.security, javax.crypto
+
+④Javaパッケージでデータベースのパッケージは何がありますか？
+java.sql
+
+⑤importする際のルールとして2つルールを上げなさい。
+1.ファイルの先頭で　import パッケージ名.クラス名;　の構文で書くこと
+2.同じようなパッケージクラス名は重複させない
+
+⑥オンデマンドインポートとは何ですか？
+アスタリスクを使用することで、クラス名を記述することなくパッケージ全体をimportすることです。
+例：import java.util.*;
+
+⑦クラス名をインポートではなくパッケージで設定する際、クラス名をどのように指定して記述する必要がありますか？
+「完全限定名」で指定し記述します。
+例：package sample;
+ 
+public class TrimSample {
+	
+	public static void main(String[] args) {
+		java.util.Calendar cl = java.util.Calendar.getInstance();
+		System.out.println("YEAR：" + cl.get(java.util.Calendar.YEAR));
+    }
+ 
+}
+java.util.Calendarとずっと書かなければならないため大変になります。ファイル先頭で一度「このパッケージのこのクラスを使用します！」と宣言することで、プログラムに理解させるほうが簡単です。
