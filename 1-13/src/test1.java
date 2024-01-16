@@ -34,27 +34,22 @@ public class test1 {
                 }
 
                     // 3rd for loop: strArray3でfor文を回し「kakao」となるようにstrArray4に格納しstrArray4を出力する
-                    for (int k = 0; k <= strArray3.size() -5; k++) {
-//                        if (strArray3.get(k).equals("k") && strArray3.get(k + 1).equals("a") &&
-//                                strArray3.get(k + 2).equals("k") && strArray3.get(k + 3).equals("a") &&
-//                                strArray3.get(k + 4).equals("o")) {
-//                            strArray4.add(strArray3.get(k));
-//                        }
+            	for (int k = 0; k <= strArray3.size() -5; k++) {
 
-                        // Additional conditions within 3rd for loop
-                        if (strArray4.size() == 0 && strArray3.get(k).equals("k")) {
-                            strArray4.add(strArray3.get(k));
-                        } else if (strArray4.size() == 1 && strArray3.get(k).equals("a")) {
-                            strArray4.add(strArray3.get(k));
-                        }else if (strArray4.size() == 2 && strArray3.get(k).equals("k")) {
-                            strArray4.add(strArray3.get(k));
-                            }else if (strArray4.size() == 3 && strArray3.get(k).equals("a")) {
-                                strArray4.add(strArray3.get(k));
-                                }
-//                            else if (strArray4.size() == 4 && strArray3.get(k).equals("k") || strArray4.size() == 4 && strArray3.get(k).equals("a")) {
-//                            	 strArray4.add(strArray3.get(k));
-//                                    }
-//                       
+                  // Additional conditions within 3rd for loop
+                  if (strArray4.size() == 0 && strArray3.get(k).equals("k")) {
+                      strArray4.add(strArray3.get(k));
+                  } else if (strArray4.size() == 1 && strArray3.get(k).equals("a")) {
+                      strArray4.add(strArray3.get(k));
+                  }else if (strArray4.size() == 2 && strArray3.get(k).equals("k")) {
+                      strArray4.add(strArray3.get(k));
+                      }else if (strArray4.size() == 3 && strArray3.get(k).equals("a")) {
+                          strArray4.add(strArray3.get(k));
+                          }
+       
+                        if(strArray4.size() == 4  || strArray3.get(k).equals("o")) {
+                        	  strArray4.add(strArray3.get(k));
+                          }
                         
                     }
                 }
