@@ -1,3 +1,4 @@
+package sample;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,15 +24,7 @@ public class test1 {
 
                 // 3rd for loop: strArray3でfor文を回し「kakao」となるようにstrArray4に格納しstrArray4を出力する
                 for (int k = 0; k < strArray3.size(); k++) {
-                    if (strArray4.size() == 0 && strArray3.get(k).equals("k")) {
-                        strArray4.add(strArray3.get(k));
-                    } else if (strArray4.size() == 1 && strArray3.get(k).equals("a")) {
-                        strArray4.add(strArray3.get(k));
-                    } else if (strArray4.size() == 2 && strArray3.get(k).equals("k")) {
-                        strArray4.add(strArray3.get(k));
-                    } else if (strArray4.size() == 3 && strArray3.get(k).equals("a")) {
-                        strArray4.add(strArray3.get(k));
-                    } else if (strArray4.size() == 4 && strArray3.get(k).equals("o")) {
+                    if (k < 4) { // 修正: 最初の4つの要素のみを追加
                         strArray4.add(strArray3.get(k));
                     }
                 }
