@@ -1,0 +1,109 @@
+DDL文
+create table customers(
+customer_id int,
+name varchar(255),
+email varchar(255),
+phone varchar(255),
+
+constraint k_customers primary key(customer_id));
+
+comment on column customers.customer_id IS '顧客ID';
+comment on column customers.name IS '顧客名';
+comment on column customers.email IS 'メールアドレス';
+comment on column customers.phone IS '電話番号';
+
+comment on table customers IS '顧客情報';
+
+
+
+
+create table orders(
+order_id int,
+customer_id int,
+order_date date,
+total decimal(10,2),
+
+constraint k_orders primary key(order_id),
+constraint k_id foreign key(customer_id)
+ references customers (customer_id)
+);
+
+comment on column orders.order_id IS '注文ID';
+comment on column orders.customer_id IS '顧客ID';
+comment on column orders.order_date IS '注文日';
+comment on column orders.total IS '合計金額';
+
+comment on table orders IS '注文情報';
+
+
+------ここからはまだ実行していない。
+質問する。
+
+create table order_items(
+order_id int,
+product_id int,
+quantity int,
+price decimal(10,2),
+
+constraint k_orderitemspk primary key(order_id,product_id),
+constraint k_orderidfk foreign key(order_id)
+ references orders (order_id),
+constraint k_productidfk foreign key(product_id)
+ references products (product_id),
+);
+
+comment on column order_items.order_id IS '注文ID';
+comment on column order_items.product_id IS '製品ID';
+comment on column order_items.quantity IS '数量';
+comment on column order_items.price IS '価格';
+
+
+create table products(
+product_id int,
+name varchar(255),
+price decimal(10,2),
+category varchar(255),
+
+constraint k_productspk primary key(product_id)
+);
+
+comment on column products.product_id IS '製品ID';
+comment on column products.name IS '製品名';
+comment on column products.price IS '価格';
+comment on column products.category IS 'カテゴリ';
+
+comment on table products IS '製品情報';
+
+
+
+
+
+
+
+
+DML文
+insert into order_items (order_id,product_id,quantity,price)
+values (1,1,2,'80000.00'),
+       (2,3,1,'200000.00'),
+	   (2,4,1,'50000.00'),
+	   (2,5,2,'200000.00'),
+	   (3,2,1,'120000.00'),
+	   (4,4,2,'100000.00');
+
+insert into products (product_id,name,price,category)
+values (1,'iPhone12','80000.00','スマートフォン'),
+       (2,'iPad Pro','120000.00','タブレット'),
+	   (3,'MacBook pro','120000.00','パソコン'),
+	   (4,'エアコン','50000.00','家電'),
+	   (5,'テレビ','100000.00','家電');
+
+insert into orders (order_id,customer_id,order_date,total)
+values (1,1,current_date,'160000.00'),
+       (2,1,current_date,'240000.00'),
+	   (3,2,current_date,'120000.00'),
+	   (4,3,current_date,'100000.00');
+
+insert into customers (customer_id,name,email,phone)
+values (1,'山田太郎','yamada@example.com','012-3456-7890'),
+       (2,'田中花子','tanaka@example.com','090-1234-5678'),
+	   (3,'鈴木次郎','suzuki@example.com','080-8765-4321');
