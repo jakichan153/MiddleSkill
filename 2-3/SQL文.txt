@@ -36,8 +36,7 @@ comment on column orders.total IS '合計金額';
 comment on table orders IS '注文情報';
 
 
-------ここからはまだ実行していない。
-質問する。
+
 
 create table order_items(
 order_id int,

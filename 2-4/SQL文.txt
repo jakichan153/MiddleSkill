@@ -1,0 +1,86 @@
+①顧客テーブルからすべての顧客の情報を取得するSQL
+SELECT
+    customer_id                                 -- 顧客ID
+    , name                                      -- 顧客名
+    , email                                     -- メールアドレス
+    , phone                                     -- 電話番号
+FROM
+    customers 
+
+②顧客テーブルから特定の顧客の名前（山田太郎）とメールアドレス（yamada@example.com）を取得するSQL
+SELECT
+    customer_id                                   -- 顧客ID
+    , name                                        -- 顧客名
+    , email                                       -- メールアドレス
+FROM
+    customers 
+WHERE
+    customer_id = 1
+ORDER BY
+    customer_id
+
+
+③注文テーブルから注文日が2022/2/1以降の注文情報を取得するSQL
+SELECT
+    order_id                                    -- 注文ID
+    , customer_id                               -- 顧客ID
+    , order_date                                -- 注文日
+    , total                                     -- 合計金額
+FROM
+    orders 
+WHERE
+    order_date > '2022/2/1'                    -- 注文日
+ORDER BY
+    order_id
+
+
+④注文アイテムテーブルから、エアコンを購入した注文数を取得し注文された合計金額を取得するSQL
+select
+    SUM(products.price * order_items.quantity) AS sum
+from
+    order_items
+left join
+    products ON order_items.product_id = products.product_id
+where
+    products.name = 'エアコン';
+
+
+⑤製品テーブルから、ある価格帯（5万円以上10万円以内）の製品をすべて取得するSQL
+SELECT
+    product_id                                  -- 製品ID
+    , name                                      -- 製品名
+    , price                                     -- 価格
+    , category                                  -- カテゴリ
+FROM
+    products 
+WHERE 
+    price BETWEEN 50000 AND 100000              -- 製品ID
+ORDER BY
+    product_id;
+
+
+⑥製品テーブルから、カテゴリごとに製品数と平均価格を取得するSQL
+SELECT
+    category,                                   -- カテゴリ
+    AVG(price) avg,
+    COUNT(*) AS count
+FROM
+    products 
+GROUP BY
+    category;
+
+
+
+⑦注文情報テーブルから、各顧客が最近に注文した日付を取得するSQL
+SELECT
+    c.name AS name,
+    o.customer_id,
+    MAX(o.order_date) AS newday
+FROM
+    orders o
+LEFT JOIN
+    customers c ON o.customer_id = c.customer_id
+GROUP BY
+    o.customer_id, c.name
+ORDER BY
+    newday DESC;
