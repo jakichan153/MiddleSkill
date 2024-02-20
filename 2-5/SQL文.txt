@@ -1,0 +1,44 @@
+①顧客IDが１の顧客電話番号を「999-9999-9999」に更新するSQL
+UPDATE customers 
+SET
+    phone = '999-9999-9999'                   
+WHERE
+    customer_id = 1;  
+
+②注文IDが2で、商品IDが4の注文アイテムの数量を3価格を15万に更新するSQL
+UPDATE order_items
+SET quantity = 3,
+    price = 150000
+WHERE order_id = 2
+AND product_id = 4;
+
+③顧客テーブルの顧客IDが３のの名前を顧客ID３が購入した商品名に更新しなさいSQL文
+※サブクエリ、LEFT JOINを利用すること
+UPDATE customers
+SET name = (
+    SELECT products.name
+    FROM orders
+    LEFT JOIN order_items ON orders.order_id = order_items.order_id
+    LEFT JOIN products ON order_items.product_id = products.product_id
+    WHERE orders.customer_id = 3
+    LIMIT 1
+)
+WHERE customer_id = 3;
+
+④注文情報テーブルの注文日が「2022/1/1~2022/2/28」までの顧客IDを「2」に
+「2022/3/1~2022/3/28」までの顧客IDを「1」にそれ以外は顧客IDを「3」に
+更新するSQL文※BETWEENを利用すること
+UPDATE orders
+SET customer_id = 
+    CASE
+        WHEN order_date BETWEEN '2022/01/01' AND '2022/02/28' THEN 2
+        WHEN order_date BETWEEN '2022/03/01' AND '2022/03/28' THEN 1
+        ELSE 3
+    END;
+
+
+⑤顧客情報テーブルの名前に「コ」の文字が入っている場合は名前を「福田三郎」に更新「コ」の文字が入っていない場合は更新しないSQL文※LIKE句を利用すること
+UPDATE customers
+SET name = '福田三郎'
+WHERE name LIKE '%\コ%' ESCAPE '\';
+
