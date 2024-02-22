@@ -23,15 +23,15 @@ public class test1 {
 
                 // 3rd for loop: strArray3でfor文を回し「kakao」となるようにstrArray4に格納しstrArray4を出力する
                 for (int k = 0; k < strArray3.size(); k++) {
-                    if (strArray4.size() == 0 && strArray3.get(k).equals("k")) {
+                    if (strArray4.size() == 0 && strArray3.get(k)==("k")) {
                         strArray4.add(strArray3.get(k));
-                    } else if (strArray4.size() == 1 && strArray3.get(k).equals("a")) {
+                    } else if (strArray4.size() == 1 && strArray3.get(k)==("a")) {
                         strArray4.add(strArray3.get(k));
-                    } else if (strArray4.size() == 2 && strArray3.get(k).equals("k")) {
+                    } else if (strArray4.size() == 2 && strArray3.get(k)==("k")) {
                         strArray4.add(strArray3.get(k));
-                    } else if (strArray4.size() == 3 && strArray3.get(k).equals("a")) {
+                    } else if (strArray4.size() == 3 && strArray3.get(k)==("a")) {
                         strArray4.add(strArray3.get(k));
-                    } else if (strArray4.size() == 4 && strArray3.get(k).equals("o")) {
+                    } else if (strArray4.size() == 4 && strArray3.get(k)==("o")) {
                         strArray4.add(strArray3.get(k));
                     }
                 }
