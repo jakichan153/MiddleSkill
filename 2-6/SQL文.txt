@@ -1,0 +1,7 @@
+DELETE FROM order_items
+WHERE EXISTS (
+    SELECT 1
+    FROM orders
+    WHERE orders.customer_id = '1'
+    AND orders.order_id = order_items.order_id
+);
