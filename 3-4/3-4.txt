@@ -1,0 +1,13 @@
+⚫️課題3-4
+
+①インターフェースの基本的な役割とは何ですか？
+インターフェースは機能の概要を書くもの
+
+②seviceとserviceimplのうちインターフェースはどちらになりますか？
+serviceです
+
+③serviceに記載するルールは何ですか？
+「機能の概要」なので、メソッドの名前、引数といった定義のみを記述します。処理は実装クラスの方に記述します。
+
+④何らかのロジカル的な処理を行うプログラミングをしようとする時、コーディングするのに正しいのはどれになりますか？(controller、service、view、seviceimpl、entity、dao、daoimpl)
+controller、service、entity、daoです
