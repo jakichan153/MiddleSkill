@@ -25,7 +25,7 @@ Model
 ⑥「contoroller」「dao」「serviceimpl」「daoimpl」「sevice」「view」「Entity」「form」「DB」の語句のwebサイトを動かすにあたりどのような動きになるか記載しなさい。（想定は画面からDBの情報を取得し画面に表示する）（同じ用語も複数回使います）
 
 
-「view」→「form」→「controller」→「service」→「serviceimpl」→「Entity」→「DAO」→「DAOImpl」→「DB」→「service」→「controller」→「view」
+View → Form → Controller → Service → ServiceImpl → Entity → DAO → DAOImpl → DB → DAO → ServiceImpl → Service → Controller → View
 
 ⑦各コンポーネントの責務を答えなさい。（Controller）
  フロントからのリクエスト、およびフロントへのレスポンスのハンドリングのみを行います。サービスからの結果をもとに、適切なレスポンスを生成します。通常は、ビューに表示するデータを含んだレスポンスを生成します。
