@@ -1,0 +1,28 @@
+⚫️課題4-1
+①VSコードを日本語にするための手順をまとめなさい。（7つ）
+VSコードインストール後、
+メニューバーの「VIEW」を選択
+「Command Pallete]を選択
+「Configure Display Language」を選択
+「Install additional languages」を選択
+「Japanese language pack」を選択し、インストールボタンを押す
+VSコードを再起動後、日本語になっていれば以上で手順は終了
+
+
+②VSコードでターミナルを開く時のショートカットキーは何ですか？
+　「Ctrl　＋　ｊ　　」
+
+③フォルダを見やすいようにアイコンかしてくれる拡張機能を何と言いますか？
+　「　vscode-icons　」
+
+④コードを自動整形してくれる拡張機能を何と言いますか？
+　「　prettier code formatter　」
+
+⑤コードに対してのGit履歴がわかるようになる拡張機能を何と言いますか？
+　「　GitLens　」
+　
+⑥HTML側のクラス名をホバーするとCSSコードを表示してくれる拡張機能を何と言いますか？
+　「　CSS Peek　」
+
+
+
