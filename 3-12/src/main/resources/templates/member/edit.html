@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" th:href="@{/css/edit.css}">
+</head>
+<body>
+  <div class="container">
+    <h1>編集</h1>
+    <form th:action="@{/member/update}" th:object="${memberUpdateRequest}" th:method="post">
+      <input type="hidden" th:field="*{id}" />
+      <input type="hidden" th:field="*{genderId}" />
+      <input type="hidden" th:field="*{date}" />
+      <input type="hidden" th:field="*{bloodTypeId}" />
+      <div class="form-group">
+        <label for="name">名前</label><br/>
+        <input type="text" th:field="*{name}" id="name" name="name" />
+        <div>
+          <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age">年齢</label><br />
+        <select th:field="*{age}" id="age" name="age" class="form-control">
+          <option th:each="i : ${#numbers.sequence(0, 100)}" th:value="${i}" th:text="${i}"></option>
+        </select>
+      </div>
+      <div class="button002">
+        <button type="submit">更新</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

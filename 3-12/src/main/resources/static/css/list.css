@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+h1{
+	text-align: center; /* h1を中央揃え */
+}
+
+table {
+  margin: 0 auto; /* テーブルを中央に配置 */
+  border-collapse: collapse; /* セルの境界を重ねる */
+  width: 30%; /* テーブルの幅を設定 */
+}
+
+th, td {
+  text-align: center; /* thとtdのテキストを中央揃え */
+  padding: 4px; /* セルの内側の余白を設定 */
+}
+
+.text-center {
+    text-align: center;
+}

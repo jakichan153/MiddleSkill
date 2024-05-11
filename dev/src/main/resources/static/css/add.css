@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/* add.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+.input-error {
+    border: 1px solid red;
+}
+
+.button002 {
+    margin-top: 20px;
+}
+
+.text-danger {
+    color: red;
+}

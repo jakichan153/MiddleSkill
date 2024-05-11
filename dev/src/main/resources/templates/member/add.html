@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/add.css}">
+    <title>ユーザー新規登録</title>
+</head>
+
+<body>
+    <div class="button001">
+        <div th:if="${validationError}" th:each="error : ${validationError}">
+            <label class="text-danger" th:text="${error}"></label>
+        </div>
+        <div class="container">
+            <header>
+                <div class="row">
+                    <h1>新規登録</h1>
+                </div>
+            </header>
+        </div>
+        <div class="container">
+            <form th:action="@{/member/create}" th:object="${memberDto}" th:method="post" class="row">
+                <div class="name">
+                    <div class="form-group">
+                        <label for="name"><span class="label label-danger">必須</span> 名前</label>
+                        <input type="text" th:field="*{name}" id="name" name="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="age"><span class="label label-danger">必須</span> 年齢</label>
+                        <input type="text" th:field="*{age}" id="age" name="age" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday"><span class="label label-danger">必須</span> 誕生日</label>
+                        <input type="date" th:field="*{birthday}" id="birthday" name="birthday" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="genderId"><span class="label label-danger">必須</span> 性別</label>
+                        <select th:field="*{genderId}" class="form-control">
+                            <option value="">選択してください</option>
+                            <option value="1">男性</option>
+                            <option value="2">女性</option>
+                            <option value="3">その他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bloodTypeId"><span class="label label-danger">必須</span> 血液型</label>
+                        <select th:field="*{bloodTypeId}" class="form-control">
+                            <option value="">選択してください</option>
+                            <option value="A">A型</option>
+                            <option value="B">B型</option>
+                            <option value="O">O型</option>
+                            <option value="AB">AB型</option>
+                        </select>
+                    </div>
+                    <div class="button002">
+                        <button type="submit">登録</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <footer>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>
