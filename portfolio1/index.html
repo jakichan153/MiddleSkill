@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>4-8</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
 </head>
@@ -18,10 +21,10 @@
     
             <div class="nav-links">
                 <ul>
-                    <a href=""><li>About</li></a>
-                    <a href=""><li>Works</li></a>
-                    <a href=""><li>News</li></a>
-                    <a href=""><li>Contact</li></a>
+                    <a href="#About"><li>About</li></a>
+                    <a href="#Works"><li>Works</li></a>
+                    <a href="#News"><li>News</li></a>
+                    <a href="#Contact"><li>Contact</li></a>
                     <a href=""><li><img src="img/icon.png" alt="" class="icon"></li></a>
                 </ul>
             </div>
@@ -29,59 +32,119 @@
         <!--main visual部分-->
         <div class="main_visual">
             <img src="img/mainvisual.png" alt="" class="mainvisual">
+            <img src="img/mainvisual2.png" alt="" class="mainvisual">
+            <img src="img/mainvisual3.png" alt="" class="mainvisual">
         </div>
         <div class="container">
-            <h3>About</h3>
+            <h3 id="About">About</h3>
             <p class="text1">Xxxxx Ashley</p>
             <p class="text2">2th floor xxxxx Building x-x-x Nishiazabu,Minato-ku,Tokyo 106-0031 Japan<br>tel:000-0000-0000 <br>url:www.xxxxxx.jp <br>mail:xxx@xxxxxx.jp</p>
             <p class="text3">プロフィールテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
         </div>
         <div class="works">
-            <h3>Works</h3>
+            <h3 id="Works">Works</h3>
         </div>
         <div class="container2">
-            <img src="img/1.png" alt="">
-            <img src="img/2.png" alt="">
-            <img src="img/3.png" alt="">
-            <img src="img/4.png" alt="">
-            <img src="img/5.png" alt="">
-            <img src="img/6.png" alt="">
-        </div>
+          <img src="img/1.png" alt="" class="work-image" data-modal="modal-1">
+          <img src="img/2.png" alt="" class="work-image" data-modal="modal-2">
+          <img src="img/3.png" alt="" class="work-image" data-modal="modal-3">
+          <img src="img/4.png" alt="" class="work-image" data-modal="modal-4">
+          <img src="img/5.png" alt="" class="work-image" data-modal="modal-5">
+          <img src="img/6.png" alt="" class="work-image" data-modal="modal-6">
+      </div>
+      <div id="modal-1" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+    <div id="modal-2" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img02">
+    </div>
+    <div id="modal-3" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img03">
+    </div>
+    <div id="modal-4" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img04">
+    </div>
+    <div id="modal-5" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img05">
+    </div>
+    <div id="modal-6" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img06">
+    </div>
         <div class="news">
-            <h3>News</h3>
+            <h3 id="News">News</h3>
         </div>
         <div class="container3">
             <ul class="news_list">
                 <li class="news_list_item">
                   <a href="">
                     <div class="news_list_date">
-                      <time>2020.xx.xx</time>
-                      <p class="news_item">お知らせ</p>
+                      <time>2024.xx.xx</time>
                     </div>
-                    <p>サイトリニューアルしました。</p>
+                    <p>デザイン雑誌「XXXXXX Vol.11」に掲載していただきました。</p>
                   </a>
                 </li>
                 <li class="news_list_item">
                   <a href="">
                     <div class="news_list_date">
-                      <time>2020.xx.xx</time>
-                      <p class="news_item">お知らせ</p>
+                      <time>2024.xx.xx</time>
                     </div>
-                    <p>記事が更新されました。記事が更新されました。記事が更新されました。記事が更新されました。</p>
+                    <p>XX月XX日から写真集「XXXXXXX」の発売を開始します。</p>
                   </a>
                 </li>
                 <li class="news_list_item">
                   <a href="">
                     <div class="news_list_date">
-                      <time>2020.xx.xx</time>
-                      <p class="news_item">お知らせ</p>
+                      <time>2024.xx.xx</time>
                     </div>
-                    <p>サイトリニューアルしました。</p>
+                    <p>【イベント開催のお知らせ】テキストテキストテキストテキスト</p>
+                  </a>
+                </li>
+                <li class="news_list_item">
+                  <a href="">
+                    <div class="news_list_date">
+                      <time>2024.xx.xx</time>
+                    </div>
+                    <p>デザイン雑誌「XXXXXX Vol.10」に掲載していただきました。</p>
+                  </a>
+                </li><li class="news_list_item">
+                  <a href="">
+                    <div class="news_list_date">
+                      <time>2024.xx.xx</time>
+                    </div>
+                    <p>【個展開催のお知らせ】テキストテキストテキストテキスト</p>
                   </a>
                 </li>
           </ul>
         </div>
+        <div class="contact">
+          <h3 id="Contact">Contact</h3>
+      </div>
+      <div class="contact-form">
+        <form action="#">
+          <dl>
+            <dt><label for="name">NAME</label></dt>
+            <dd><input type="text" id="name" name="your-name"></dd>
+            <dt><label for="email">E-Mail</label></dt>
+            <dd><input type="email" id="email" name="your-email"></dd>
+            <dt><label for="message">MESSAGE</label></dt>
+            <dd><textarea id="message" name="your-message"></textarea></dd>
+          </dl>
+          <div class="button"><input type="submit" value="送信"></div>
+        </form>
+      </div>
+      <footer id="footer">
+        <p>&copy; 2020 My Work</p>
+      </footer>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="js/Test.js"></script>
     
 </body>
 </html>
