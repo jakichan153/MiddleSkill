@@ -9,7 +9,7 @@ public class test1 {
 		//改行
 		System.out.println("問１");
 		//問題1:配列"numa"の要素を全要素を出力しなさい。※i++など利用しないfor文で記述すること
-		int[] numa = {1, 2, 3, 4, 5};
+		int[] numa = {1, 2, 3, 4, 5, 6};
 		for(int num : numa) {
 			System.out.println(num);
 		}

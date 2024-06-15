@@ -2,6 +2,9 @@ package com.example.demo.dto;
 
 import java.io.Serializable;
 
+import com.example.demo.entity.BloodType;
+import com.example.demo.entity.Gender;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -21,7 +24,7 @@ public class MemberRequest implements Serializable {
 	
 	@NotNull(message = "性別を選択してください")
 	 //実装1行
-	  private Integer genderId;
+	  private Gender genderId;
 	
 	@NotEmpty(message = "日付を入力してください")
 	
@@ -30,7 +33,7 @@ public class MemberRequest implements Serializable {
 	
 	@NotNull(message = "血液型を選択してください")
 	 //実装1行
-	  private Integer bloodTypeId;
+	  private BloodType bloodTypeId;
 }
 
 

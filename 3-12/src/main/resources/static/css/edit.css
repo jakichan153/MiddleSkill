@@ -33,6 +33,17 @@
     box-sizing: border-box;
     width: 150px;
 }
+#date {
+	margin: 0 auto;
+    display: block; 
+    width: 50%; 
+    box-sizing: border-box;
+    width: 150px;
+}
+
+.bottom{
+	display:inline-block;
+}
 
 
 .form-group span {

@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -29,12 +31,14 @@ public class Member implements Serializable{
     @Column(name = "age")
     private Integer age;
 
-    @Column(name = "gender_id")
-    private Integer genderId;
+    @ManyToOne
+    @JoinColumn(name = "gender_id", referencedColumnName = "gender_id")
+    private Gender genderId;
 
     @Column(name = "date")
     private String date;
 
-    @Column(name = "blood_type_id")
-    private Integer bloodTypeId;
+    @ManyToOne
+    @JoinColumn(name = "blood_type_id", referencedColumnName = "blood_type_id")
+    private BloodType bloodTypeId;
 }

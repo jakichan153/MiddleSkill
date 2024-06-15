@@ -50,8 +50,8 @@ public class MemberService {
   	member.setName(memberRequest.getName());
   	member.setAge(memberRequest.getAge());
   	member.setGenderId(memberRequest.getGenderId());
-      member.setDate(memberRequest.getDate());
-      member.setBloodTypeId(memberRequest.getBloodTypeId());
+    member.setDate(memberRequest.getDate());
+    member.setBloodTypeId(memberRequest.getBloodTypeId());
       return memberRepository.save(member);
   }
   
@@ -63,6 +63,9 @@ public class MemberService {
     Member member = findById(memberUpdateRequest.getId());
     member.setName(memberUpdateRequest.getName());
     member.setAge(memberUpdateRequest.getAge());
+    member.setGenderId(memberUpdateRequest.getGenderId());
+    member.setDate(memberUpdateRequest.getDate());
+    member.setBloodTypeId(memberUpdateRequest.getBloodTypeId());
     memberRepository.save(member);
   }
   

@@ -1,0 +1,87 @@
+⚫️課題5-1～5-5
+【準備】
+①ジップファイルを保存して環境を作って整えてください
+②pom.xmlは使用するDBで自分で切り替えてください
+③下記SQL文を打ち込んで下さい
+
+③-1
+CREATE TABLE "user" (
+ id SERIAL NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  address VARCHAR(255),
+  phone VARCHAR(50),
+  update_date TIMESTAMP NOT NULL,
+  create_date TIMESTAMP NOT NULL,
+  delete_date TIMESTAMP,
+ PRIMARY KEY (id)
+);
+
+③-2
+INSERT INTO public."user"(
+id, name, address, phone, update_date, create_date)
+VALUES ('1', 'テスト太郎', '東京都サンプル区1-1', '080-0000-0000', '2019-05-06 12:00:00', '2019-05-01 12:00:00');
+
+
+【課題】
+①
+TemplateInputException
+NumberFormatException
+ClassCastException
+NullPointerException
+IndexOutOfBoundsException
+ArithmeticException
+
+6つのエラーが邪魔して機能していないのでCRAD機能とバリデーション、各画面遷移が
+正常に行えるようにしてください
+
+
+②TemplateInputExceptionの原因と原因箇所と修正内容を説明してください
+テンプレートの構文間違いによるもの。(view.html)
+<head th:replace="common/head :: head_fragment(title = 'ユーザー情報詳細', scripts = ~::script, links = ~{::link})"></head>
+を、以下のように修正
+<head th:replace="common/head :: head_fragment(title = 'ユーザー情報詳細', scripts = ~{::script}, links = ~{::link})"></head>
+
+③NumberFormatExceptionの原因と原因箇所と修正内容を説明してください
+String型の変数をparseIntメソッドによってint型に変換しているが、String型の変数が数値ではないため例外が発生している。
+public String displayViewの、int User =  Integer.parseInt(name);は不要。削除対応した。
+
+④ClassCastExceptionの原因と原因箇所と修正内容を説明してください
+userRequest.getName()が返す値の型は、Stringであるべき。
+Object name = userRequest.getName();を、 String name = userRequest.getName();に修正。
+Integer logName = (Integer) name;の部分を削除、integerへのキャストは不要。
+
+⑤NullPointerExceptionの原因と原因箇所と修正内容を説明してください
+ControllerクラスでuserUpdateRequest=null;となっており、nullのためgetId()を呼び出すことができないようになっている。
+修正は、userUpdateRequestがnullじゃないことを確認してから、getId()を呼び出すようにする。
+userUpdateRequest=null;を、以下のように修正。
+if (userUpdateRequest == null) {
+return "error"; 
+}
+Integer userId = userUpdateRequest.getId();
+
+⑥IndexOutOfBoundsExceptionの原因と原因箇所と修正内容を説明してください
+forループの中でリストの負のインデックスを使用しているため（userlist.get(-2)）
+
+public String displayList(Model model) {
+List<UserEntity> userlist = userService.searchAll();
+List<UserEntity> userlists = new ArrayList<UserEntity>();
+for(int i = 0;i<userlist.size()-1;i++) {
+userlists.add(userlist.get(-2));
+}を、下記に修正
+
+public String displayList(Model model) {
+List<UserEntity> userlist = userService.searchAll();
+List<UserEntity> userlists = new ArrayList<UserEntity>();	
+for(int i = 0;i<userlist.size();i++) {
+userlists.add(userlist.get(i));
+}
+
+⑦ArithmeticExceptionの原因と原因箇所と修正内容を説明してください
+Java の BigDecimal クラスでは、割り算の結果が無限小数になる場合、デフォルトでは例外をスローするようになっている。
+Controllerクラスの下記の部分では、10を③で割ると無限小数が生成されるためエラーが起こっている。
+BigDecimal id1 = new BigDecimal(10);
+BigDecimal id2 = new BigDecimal(3);
+BigDecimal id3 = id1.divide(id2);
+
+上記の、BigDecimal id3 = id1.divide(id2);を、BigDecimal id3 = id1.divide(id2, 2, RoundingMode.HALF_UP);に修正。
+RoundingMode.HALF_UPにし、小数点以下2桁までの結果を四捨五入を行うようにする。

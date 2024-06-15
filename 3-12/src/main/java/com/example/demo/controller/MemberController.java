@@ -49,7 +49,8 @@ public class MemberController {
 	        bloodTypeId.put(4, "AB型");
 	        return bloodTypeId;
 	    }
-	}
+
+  }		
   @GetMapping(value = "/member/list")
   public String displayList(Model model) {
     List<Member> memberlist = memberService.searchAll();
@@ -108,23 +109,30 @@ public class MemberController {
  
   @PostMapping("/member/update")
   public String update(@Validated @ModelAttribute MemberUpdateRequest memberUpdateRequest, BindingResult result, Model model) {
-    if (result.hasErrors()) {
-    	// 入力チェックエラーの場合
-      List<String> errorList = new ArrayList<String>();
-      for (ObjectError error : result.getAllErrors()) {
-        errorList.add(error.getDefaultMessage());
+      if (result.hasErrors()) {
+          // 入力チェックエラーの場合
+          List<String> errorList = new ArrayList<String>();
+          for (ObjectError error : result.getAllErrors()) {
+              errorList.add(error.getDefaultMessage());
+          }
+          model.addAttribute("validationError", errorList);
+          return "member/edit";
       }
-      model.addAttribute("validationError", errorList);
-      return "member/edit";
-    }
-    // ユーザー情報の更新
-    memberService.update(memberUpdateRequest);
-    // 更新後にメンバーリストを再取得して表示する
-    List<Member> memberlist = memberService.searchAll();
-    model.addAttribute("memberlist", memberlist);
-    // リダイレクトして画面遷移
-    return "redirect:/member/list";
+      try {
+          // ユーザー情報の更新
+          memberService.update(memberUpdateRequest);
+      } catch (Exception e) {
+          logger.error("ユーザー情報の更新に失敗しました。", e);
+          model.addAttribute("updateError", "ユーザー情報の更新に失敗しました。");
+          return "member/edit";
+      }
+      // 更新後にメンバーリストを再取得して表示する
+      List<Member> memberlist = memberService.searchAll();
+      model.addAttribute("memberlist", memberlist);
+      // リダイレクトして画面遷移
+      return "redirect:/member/list";
   }
+
   
   
   @GetMapping("/member/{id}/delete")
